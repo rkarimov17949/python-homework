@@ -390,5 +390,169 @@ def welcome_name(name: str = "guest") -> None:
 # 40
 def  print_person_info(age: int = 21, city: str = "Baku", country: str = "Azerbaijan") -> None:
     print(f"Age: {age}, City: {city}, Country: {country}")
+# 41
+def print_menu(item: str = "Pizza") -> None:
+    print(f"Today's menu: {item}")
+
+# 42
+def get_min_max(numbers: list[int]) -> int:
+    return min(numbers), max(numbers)
+
+# 43
+def string_cases(text: str) -> str:
+    return text.upper(), text.lower()
+
+# 44
+def length_and_reverse(text: str) -> list[int, str]:
+    return len(text), text[::-1]
+
+# 45
+def square_and_cube(n: float) -> float:
+    return (n * n), (n * n * n)
+
+# 46
+def  name_and_age(name: str, age: int) -> tuple[str, int]:
+    return name, age
+
+# 47
+def first_and_last(item: list[any]) -> str:
+    return item[0], item[-1]
+
+# 48
+def validate_age(age: int) -> bool:
+    if age >= 18:
+         return True, "Adult"
+         return False, "Minor"
+    
+# 49
+def sum_and_difference(a: float, b: float) -> float:
+    return (a + b), (a - b)
+
+# 50
+def user_dict(username: str, email: str) -> dict[str, str]:
+    return {username, email}
+
+# 51
+
+# 54
+from datetime import datetime
+
+def print_current_year() -> None:
+    print(datetime.now().year)
+
+# 55
+def print_day_of_week() -> None:
+    print(datetime.now().strftime("%A"))
+
+# 56
+def print_current_time() -> None:
+    print(datetime.now().strftime("%H:%M:%S"))
+
+# 57
+def current_date_string() -> str:
+    return datetime.now().strftime("%Y-%m-%d")
+
+# 58
+def current_month_string() -> str:
+    return datetime.now().strftime("%B")
+
+# 59
+def print_today_iso() -> None:
+    print(datetime.now().strftime("%Y-%m-%d"))
+
+# 60
+def get_year(dt: datetime) -> int:
+    return dt.year
+
+# 61
+def get_month(dt: datetime) -> int:
+    return dt.month
+
+# 62
+def get_day(dt: datetime) -> int:
+    return dt.day
+
+# 63
+def datetime_dict() -> Dict[str, int]:
+    now = datetime.now()
+    return {
+        "year": now.year,
+        "month": now.month,
+        "day": now.day,
+        "hour": now.hour,
+        "minute": now.minute
+    }
+
+# 64
+def price_with_vat(price: float) -> float:
+    return price * 1.18
+
+# 65
+def yearly_salary(monthly_salary: float) -> float:
+    return monthly_salary * 12
+
+# 66
+def bill_with_tip(amount: float, tip_percent: float) -> float:
+    return amount + (amount * tip_percent / 100)
+
+# 67
+def discounted_price(price: float, discount_percent: float) -> float:
+    return price * (1 - discount_percent / 100)
+
+# 68
+def total_prices(prices: List[float]) -> float:
+    return sum(prices)
+
+# 69
+def fixed_discount(price: float, discount: float = 10) -> float:
+    return price * (1 - discount / 100)
+
+# 70
+def remaining_balance(balance: float, expense: float) -> float:
+    return balance - expense
+
+# 71
+def format_currency(amount: float) -> str:
+    return f"${amount:,.2f}"
+
+# 72
+def calculate_salary(hours: float, rate: float) -> float:
+    return hours * rate
+
+# 73
+def prices_with_tax(prices: List[float], tax_percent: float) -> float:
+    return sum(prices) * (1 + tax_percent / 100)
+
+# 74
+import os
+
+def print_filename(filename: str) -> None:
+    print(filename)
+
+#75
+
+def file_extension(filename: str) -> str:
+    return os.path.splitext(filename)[1]
+
+# 76
+def extract_filename(path: str) -> str:
+    return os.path.basename(path)
+
+# 77
+def is_text_file(filename: str) -> bool:
+    return filename.endswith(".txt")
+
+# 78
+def add_backup_extension(filename: str) -> str:
+    return filename + ".bak"
+
+# 79
+def count_lines(content: str) -> int:
+    return len(content.splitlines())
+
+# 80
+def uppercase_filename(filename: str) -> str:
+    return filename.upper()
+
 
 
