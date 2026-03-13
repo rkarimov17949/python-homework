@@ -17,12 +17,13 @@ from api.serializers import (
     ItemAdminUpdateSerializer,
 )
 import random
-import string
 
 
-def generate_otp():
-    return ''.join(random.choices(string.ascii_uppercase + string.digits, k=5))
 
+def create_otp_code():
+chars = string.ascii_uppercase + string.digits
+otp = ''.join(random.choice(chars) for _ in range(6))
+return otp
 
 class RequestOTP(APIView):
     def post(self, request):
@@ -41,8 +42,7 @@ class RequestOTP(APIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        otp = generate_otp()
-        cache.set(f"otp_{email}", otp, timeout=300)
+    
 
         send_mail(
             subject="Your OTP Code",
@@ -66,7 +66,7 @@ class VerifyOTP(APIView):
         email = request.data.get("email")
         otp = request.data.get("otp")
 
-        if not email or not otp:
+        if not  email or not otp:
             return Response(
                 {"error": "Email and OTP are required"},
                 status=status.HTTP_400_BAD_REQUEST
@@ -101,9 +101,9 @@ class VerifyOTP(APIView):
 
         return Response(
             {
-                "message": "OTP verified",
-                "access": str(refresh.access_token),
-                "refresh": str(refresh)
+                "message": "Verification successful",
+                "access": str(token.access_token),
+                "refresh": str(token)
             },
             status=status.HTTP_200_OK
         )
@@ -116,10 +116,9 @@ class ItemCreateView(generics.CreateAPIView):
 
 class ApprovedItemsView(generics.ListAPIView):
     serializer_class = ItemListSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.PermitAny]
 
-    def get_queryset(self):
-        return Item.objects.filter(status="APPROVED").order_by("-created_at")
+    
 
 
 class MyItemsView(generics.ListAPIView):
@@ -129,8 +128,7 @@ class MyItemsView(generics.ListAPIView):
     filterset_fields = ['status', 'created_at']
     search_fields = ['title']
 
-    def get_queryset(self):
-        return Item.objects.filter(created_by=self.request.user).order_by("-created_at")
+    
 
 
 class ItemAdminUpdateView(generics.UpdateAPIView):
