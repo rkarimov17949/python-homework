@@ -1,7 +1,6 @@
-from django.contrib.auth.models import User
-from django.core.cache import cache
-from django.core.mail import send_mail
+from django.http import HttpResponse
 
+<<<<<<< HEAD
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -135,3 +134,7 @@ class ItemAdminUpdateView(generics.UpdateAPIView):
     queryset = Item.objects.all()
     serializer_class = ItemAdminUpdateSerializer
     permission_classes = [permissions.IsAdminUser]
+=======
+def home(request):
+    return HttpResponse("OTP app is working")
+>>>>>>> 92ec08e (Add Django save method task)
