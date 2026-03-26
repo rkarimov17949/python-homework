@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-7a-z8k6op9ux)u=is-aktplrume)k%w#7!tq!=bm&s2r&afnn3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "ramo-django-api123-b9d7dmgfabbf9fe.westeurope-01.azurewebsites.net",
+]
 
 
 # Application definition
