@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
-    "ramo-django-api123-b9d7dmgfabbf9fe.westeurope-01.azurewebsites.net",
+    ".azurewebsites.net",
 ]
 
 
